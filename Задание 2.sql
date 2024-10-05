@@ -1,7 +1,7 @@
 --Название и продолжительность самого длинного трека
-SELECT title, duracion FROM track
-	ORDER BY duracion DESC
-	LIMIT 1
+SELECT title, duracion from track 
+	where duracion = (select max(duracion) from track)
+	
 	
 --Название треков, продолжительностью не менее 3.5 минут	
 SELECT title from track

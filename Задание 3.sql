@@ -20,10 +20,11 @@ SELECT album.title ,AVG(track.duracion) FROM album
     
    
 --Все исполнители, которые не выпустили альбомы в 2020 году   
-SELECT executor."name" , album."year of release" FROM album
+SELECT executor."name"  FROM album
     JOIN executoralbum ON album.id = executoralbum.album_id
     JOIN executor  ON executoralbum.executor_id = executor.id
-    WHERE album."year of release" != 2020;
+    where not album."year of release" = 2020
+	group by executor."name";
     
    
 
